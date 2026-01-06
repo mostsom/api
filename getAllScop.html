@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="c1"></div>
+    <script>
+        var row = 0;
+        var ps = [];
+        var a = "";
+        var onlyOneTime = 1;
+        var onlyOneTimeYear = 1;
+        var data = [];
+        var trRemote = document.createElement('tr');
+        fetch('https://mostsom.github.io/api/all.txt').then(response => response.text().then(function(result){
+            a = result
+        }))
+        function checkInfo(){
+            if(a){
+                a = a.split('\r\n');
+                var action = 0;
+                var p = {name:[],stats:[],years:[]};
+                var stat = [];
+                for (let i = 0; i < a.length; i++) {
+                    if(action == 0){
+                        if(a[i] == 'QWERTY'){
+                            action = 1;
+                        }
+                    }else if(action == 1){
+                        if(a[i] == "STAT"){
+                            action = 2;
+                        }else{
+                            p.name.push(a[i])
+                        }
+                    }else if(action == 2){
+                        if(a[i] == "STAT"){
+                            p.stats.push(stat);
+                            stat = [];
+                        }else{
+                            if(a[i] == 'YEARS'){
+                                p.stats.push(stat);
+                                stat = [];
+                                action = 3;
+                            }else{
+                                if(parseInt(a[i]) || parseInt(a[i]) == 0){
+                                    stat.push(parseInt(a[i]))
+                                }else{
+                                    stat.push(a[i])
+                                }
+                            }
+                        }
+                    }
+                    if(a[i] == 'OVER'){
+                        ps.push(p);
+                        p = {name:[],stats:[],years:[]};
+                        stat = [];
+                        action = 0;
+                    }else if(action > 2){
+                        if(a[i] != "YEARS"){
+                            p.years.push(a[i])
+                        }
+                    }
+                }
+                // for (let i = 0; i < ps.length; i++) {
+                //     var divAll = document.createElement('div');
+                //     var div1 = document.createElement('div');
+                //     var div2 = document.createElement('div');
+
+                //     div1.style = `
+                //         display:flex;
+                //         width:50%;
+                //         flex-direction: column;
+                //         margin-bottom:50px;
+                //     `
+                //     var span1 = document.createElement('span');
+                //     var span2 = document.createElement('span');
+                //     span1.innerHTML = ps[i].name[0];
+                //     span2.innerHTML = ps[i].name[1];
+                //     div1.appendChild(span1);
+                //     div1.appendChild(span2);
+                //     divAll.appendChild(div1);
+                //     c1.appendChild(divAll);
+                // }
+                var table1 = document.createElement('table');
+                table1.border = 1;
+                var tdNumber = document.createElement('td');
+                var tdName = document.createElement('td');
+                var tdSis = document.createElement('td');
+                var tdHindex = document.createElement('td');
+                var tdi10index = document.createElement('td');
+                
+                var spanNumber = document.createElement('span');
+                var spanName = document.createElement('span');
+                var spanSis = document.createElement('span');
+                var spanHindex = document.createElement('span');
+                var spani10index = document.createElement('span');
+
+                spanNumber.innerHTML = "#";
+                spanName.innerHTML = 'Name';
+                spanSis.innerHTML = "Статистика цитирования";
+                spanHindex.innerHTML = 'h-индекс';
+                spani10index.innerHTML = 'i10-индекс';
+
+                tdNumber.appendChild(spanNumber);
+                tdName.appendChild(spanName);
+                tdSis.appendChild(spanSis)
+                tdSis.colSpan = 2;
+                tdHindex.appendChild(spanHindex);
+                tdHindex.colSpan = 2;
+                tdi10index.appendChild(spani10index);
+                tdi10index.colSpan = 2;
+
+                trRemote.appendChild(tdNumber);
+                trRemote.appendChild(tdName);
+                trRemote.appendChild(tdSis);
+                trRemote.appendChild(tdHindex);
+                trRemote.appendChild(tdi10index);
+                
+                table1.appendChild(trRemote);
+
+                for (let i = 0; i < ps.length; i++) {
+
+                    var tr1 = document.createElement('tr');
+
+                    var td1 = document.createElement('td');
+                    var td10 = document.createElement('td');
+
+                    var span1 = document.createElement('span');
+                    var span2 = document.createElement('span');
+                    var span10 = document.createElement('span');
+                    span10.innerHTML = i+1;
+                    td10.appendChild(span10);
+                    span1.innerHTML = ps[i].name[0];
+                    span2.innerHTML = ps[i].name[1];
+                    td1.appendChild(span1);
+                    td1.appendChild(span2);
+                    tr1.appendChild(td10);
+                    tr1.appendChild(td1);
+                    for (let j = 0; j < 3; j++) {
+                        if(ps[i].stats &&  ps[i].stats[j]){
+                            var td2 = document.createElement('td');
+                            var td3 = document.createElement('td');
+                            var span3 = document.createElement('span');
+                            var span4 = document.createElement('span');
+                            span3.innerHTML = ps[i].stats[j][1];
+                            span4.innerHTML = ps[i].stats[j][2];
+                            td2.appendChild(span3);
+                            td3.appendChild(span4);
+                            tr1.appendChild(td2);
+                            tr1.appendChild(td3);
+                        }else{
+                            var td2 = document.createElement('td');
+                            var td3 = document.createElement('td');
+                            var span3 = document.createElement('span');
+                            var span4 = document.createElement('span');
+                            span3.innerHTML = 0;
+                            span4.innerHTML = 0;
+                            td2.appendChild(span3);
+                            td3.appendChild(span4);
+                            tr1.appendChild(td2);
+                            tr1.appendChild(td3);
+                        }
+                    }
+                    var years = new Set();
+                    for (let ik = 0; ik < ps.length; ik++) {
+                        for (let m = 0; m < ps[ik].years.length; m++) {
+                            if(parseInt(ps[ik].years[m].split(' ')[1]) > 0){
+                                years.add(parseInt(ps[ik].years[m].split(' ')[0]))
+                            }
+                        }
+                    }
+                    years = years.values().toArray().sort();
+                    if(onlyOneTimeYear){
+                        var minY = prompt('min: '+ years[0] +' <= ');
+                        var maxY = prompt('max: '+ years[years.length-1] +' >= ');
+                    }
+                    onlyOneTimeYear = 0;
+                    var selectedYears = [];
+                    for (let n = 0; n < years.length; n++) {
+                        if(years[n] >= minY && years[n] <= maxY){
+                            selectedYears.push([years[n], 0]);
+                            if(onlyOneTime){
+                                var tdYear = document.createElement('td');
+                                var spanYear = document.createElement('span');
+                                spanYear.innerHTML = years[n];
+                                tdYear.appendChild(spanYear);
+                                trRemote.appendChild(tdYear);
+                            }
+                        }
+                    }
+                    onlyOneTime = 0;
+                    for (let f = 0; f < selectedYears.length; f++) {
+                        for (let ff = 0; ff < ps[i].years.length; ff++) {
+                            if(selectedYears[f][0] == parseInt(ps[i].years[ff].split(' ')[0])){
+                                selectedYears[f] = [selectedYears[f],parseInt(ps[i].years[ff].split(' ')[1])]
+                            }
+                        }
+                    }
+
+                    for (let f = 0; f < selectedYears.length; f++) {
+                        var td4 = document.createElement('td');
+                        var span5 = document.createElement('span');
+                        span5.innerHTML = selectedYears[f][1];
+                        td4.appendChild(span5);
+                        tr1.appendChild(td4);
+                    }
+                    table1.appendChild(tr1);
+                }
+                c1.appendChild(table1);
+                var qwe = document.querySelectorAll('tr')
+                for (let i = 1; i < qwe.length; i++) {
+                    var v = [];
+                    for (let j = 1; j < qwe[i].childNodes.length; j++) {
+                        if(j == 1){
+                            v.push([qwe[i].childNodes[j].childNodes[0].innerHTML,qwe[i].childNodes[j].childNodes[1].innerHTML]);
+                        }else{
+                            v.push(parseInt(qwe[i].childNodes[j].childNodes[0].innerHTML));
+                        }
+                    }
+                    data.push(v);
+                }
+                trRemote.childNodes[2].idTog = 0;
+                trRemote.childNodes[2].childNodes[0].idTog = 0;
+                trRemote.childNodes[2].onclick = (e) =>{
+                    if(e.target.idTog == 0){
+                        dataSort(1);
+                        Change();
+                        e.target.idTog = 1;
+                    }else if(e.target.idTog == 1){
+                        dataSort(2);
+                        Change();
+                        e.target.idTog = 0;
+                    }
+                }
+                trRemote.childNodes[3].idTog = 0;
+                trRemote.childNodes[3].childNodes[0].idTog = 0;
+                trRemote.childNodes[3].onclick = (e) =>{
+                    if(e.target.idTog == 0){
+                        dataSort(3);
+                        Change();
+                        e.target.idTog = 1;
+                    }else if(e.target.idTog == 1){
+                        dataSort(4);
+                        Change();
+                        e.target.idTog = 0;
+                    }
+                }
+                trRemote.childNodes[4].idTog = 0;
+                trRemote.childNodes[4].childNodes[0].idTog = 0;
+                trRemote.childNodes[4].onclick = (e) =>{
+                    if(e.target.idTog == 0){
+                        dataSort(5);
+                        Change();
+                        e.target.idTog = 1;
+                    }else if(e.target.idTog == 1){
+                        dataSort(6);
+                        Change();
+                        e.target.idTog = 0;
+                    }
+                }
+                for (let i = 0; i < trRemote.childNodes.length; i++) {
+                    trRemote.childNodes[i].ids = i;
+                    trRemote.childNodes[i].childNodes[0].ids = i;
+                }
+                for (let i = 5; i < data[0].length-2; i++) {
+                    trRemote.childNodes[i].onclick = (e) =>{
+                        var k = e.target.ids+2;
+                        dataSort(k);
+                        Change();
+                    }
+                }
+                ColorDetect();
+            }else{
+                setTimeout(checkInfo, 1000);
+            }
+        }
+        setTimeout(checkInfo, 1000);
+        function dataSort(x){
+            for (let i = 0; i < data.length; i++) {
+                data[i].hop = x;
+            }
+            data.sort((a, b) => {
+                return b[x] - a[x];
+            });
+        }
+        function ColorDetect(){
+            var qwe = document.querySelectorAll('tr')
+            for (let i = 1; i < qwe.length; i++) {
+                for (let j = 1; j < qwe[i].childNodes.length; j++) {
+                    qwe[i].childNodes[j].idX = i;
+                    qwe[i].childNodes[j].idY = j;
+                    qwe[i].childNodes[j].childNodes[0].idX = i;
+                    qwe[i].childNodes[j].childNodes[0].idY = j;
+                    qwe[i].childNodes[j].onclick = (e) =>{
+                        row = e.target.idX;
+                        Change();
+                    };
+                }
+            }
+        }
+        function Change(){
+            var qwe = document.querySelectorAll('tr')
+            for (let i = 1; i < qwe.length; i++) {
+                for (let j = 1; j < qwe[i].childNodes.length; j++) {
+                    if(j == 1){
+                        qwe[i].childNodes[j].childNodes[0].innerHTML = data[i-1][0][0];
+                        qwe[i].childNodes[j].childNodes[1].innerHTML = data[i-1][0][1];
+                    }else{
+                        for (let q = 0; q < qwe[i].childNodes.length; q++) {
+                            qwe[i].childNodes[q].style.background = 'white';
+                            qwe[i].childNodes[q].style.color = 'black';
+                        }
+                        qwe[i].childNodes[data[i-1].hop+1].style.background = 'green';
+                        qwe[i].childNodes[data[i-1].hop+1].style.color = 'white';
+                        if(row){
+                            qwe[row].childNodes[j-1].style.background = 'green';
+                            qwe[row].childNodes[j-1].style.color = 'white';
+                            qwe[row].childNodes[j].style.background = 'green';
+                            qwe[row].childNodes[j].style.color = 'white';
+                        }
+                        qwe[i].childNodes[j].childNodes[0].innerHTML = data[i-1][j-1];
+                        
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
