@@ -8757,3 +8757,321 @@ Allayar Joldasov
 STAT
 YEARS
 OVER
+
+QWERTY
+Feruz Farhodov
+Toshkent Farmatsevtika instituti
+STAT
+Статистика цитирования
+51
+48
+STAT
+h-индекс
+2
+2
+STAT
+i10-индекс
+2
+2
+YEARS
+2020 2
+2021 10
+2022 14
+2023 8
+2024 10
+2025 4
+2026 2
+OVER
+
+QWERTY
+Nodira Radjabovahttps://orcid.org/0009-0006-3250-4547
+Toshkent Farmatsevtika instituti
+STAT
+Статистика цитирования
+34
+28
+STAT
+h-индекс
+3
+2
+STAT
+i10-индекс
+1
+1
+YEARS
+2015 2
+2016 0
+2017 2
+2018 0
+2019 0
+2020 2
+2021 1
+2022 0
+2023 4
+2024 20
+2025 1
+2026 2
+OVER
+
+QWERTY
+Alisher Rajapov
+Toshkent Farmatsevtika instituti
+STAT
+Статистика цитирования
+26
+13
+STAT
+h-индекс
+3
+2
+STAT
+i10-индекс
+1
+0
+YEARS
+2015 1
+2016 1
+2017 4
+2018 0
+2019 3
+2020 3
+2021 3
+2022 2
+2023 4
+2024 0
+2025 3
+2026 1
+OVER
+
+QWERTY
+Nilufar Mamatmusaeva
+Tashkent Pharmaceutical Institute,Toshkent Farmatsevtika instituti
+STAT
+Статистика цитирования
+22
+17
+STAT
+h-индекс
+3
+3
+STAT
+i10-индекс
+0
+0
+YEARS
+2018 1
+2019 3
+2020 1
+2021 4
+2022 2
+2023 6
+2024 5
+OVER
+
+QWERTY
+Bekmurzayeva Nurjamal Baxtiyarovna
+Toshkent farmatsevtika instituti
+STAT
+Статистика цитирования
+18
+18
+STAT
+h-индекс
+2
+2
+STAT
+i10-индекс
+0
+0
+YEARS
+2024 3
+2025 9
+2026 2
+OVER
+
+QWERTY
+Gulyamova Durdona Rustam qizi
+Toshkent Farmatsevtika Instituti
+STAT
+Статистика цитирования
+15
+14
+STAT
+h-индекс
+2
+2
+STAT
+i10-индекс
+0
+0
+YEARS
+2023 5
+2024 5
+2025 1
+2026 2
+OVER
+
+QWERTY
+Aypashsha Tadjiyeva, Таджиева А
+Toshkent farmatsevtika instituti
+STAT
+Статистика цитирования
+8
+6
+STAT
+h-индекс
+2
+2
+STAT
+i10-индекс
+0
+0
+YEARS
+2010 1
+2011 0
+2012 0
+2013 0
+2014 0
+2015 0
+2016 0
+2017 0
+2018 1
+2019 0
+2020 0
+2021 0
+2022 2
+2023 0
+2024 3
+2025 1
+OVER
+
+QWERTY
+Yusufxon Axmedov
+assistent informatik, Toshkent farmatsevtika instituti
+STAT
+Статистика цитирования
+6
+6
+STAT
+h-индекс
+1
+1
+STAT
+i10-индекс
+0
+0
+YEARS
+2024 2
+2025 3
+2026 1
+OVER
+
+QWERTY
+Шохида Кадирова
+Toshkent Farmatsevtika Instituti
+STAT
+Статистика цитирования
+2
+2
+STAT
+h-индекс
+1
+1
+STAT
+i10-индекс
+0
+0
+YEARS
+OVER
+
+QWERTY
+Muattar Ishmuxamedova Ишмухамедова
+Toshkent farmatsevtika instituti
+STAT
+Статистика цитирования
+2
+2
+STAT
+h-индекс
+1
+1
+STAT
+i10-индекс
+0
+0
+YEARS
+OVER
+
+QWERTY
+Азимова Комола Бахтиёровна (Komola Azimova Baxtiyorovna)
+Ташкентский Фармацевтический институт (Toshkent Farmatsevtika Instituti))
+STAT
+Статистика цитирования
+1
+1
+STAT
+h-индекс
+1
+1
+STAT
+i10-индекс
+0
+0
+YEARS
+OVER
+
+QWERTY
+Zayniddin Eshmuratov
+Toshkent Farmatsevtika instituti
+STAT
+YEARS
+OVER
+
+QWERTY
+Niginabonu Shonazarova
+Toshkent farmatsevtika instituti
+STAT
+YEARS
+OVER
+
+QWERTY
+Normurotova Mahfuza/ Нормуротова М.М.
+Toshkent farmatsevtika instituti
+STAT
+YEARS
+OVER
+
+QWERTY
+Кадирова Шохида Озотбоевна(Kadirova Shoxida Ozotboyevna)
+Toshkent Farmatsevtika Instituti
+STAT
+YEARS
+OVER
+
+QWERTY
+Aliya Muratbayeva
+Toshkent Farmatsevtika instituti
+STAT
+YEARS
+OVER
+
+QWERTY
+Inoyatova Saodatxon
+Toshkent farmatsevtika instituti
+STAT
+YEARS
+OVER
+
+QWERTY
+Azamatjon Abdujalilov
+Toshkent Farmatsevtika instituti
+STAT
+YEARS
+OVER
+
+QWERTY
+Mamatqulov Zuhridin Urmonovich
+Farmatsevtika fanlari doktori, Toshkent farmatsevtika instituti O‘quv ishlar bo‘yicha prorektori
+STAT
+YEARS
+OVER
